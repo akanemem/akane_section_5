@@ -1,0 +1,129 @@
+@import "tailwindcss";
+
+/* 🌸 ラベンダー×ホワイト テーマ（ライト固定） */
+@theme inline {
+  /* メインカラー（ラベンダー系） */
+  --color-primary: #c8a2c8; /* 明るいラベンダー */
+  --color-accent: #b48eca;  /* 少し濃いアクセント */
+  --color-secondary: #efe7f5; /* 背景用の淡ラベンダー */
+
+  /* 警告・補助色（やわらかいトーン） */
+  --color-warning: #f2c57c; /* パステルオレンジ */
+  --color-danger: #e58f8f;  /* 柔らかいピンクレッド */
+
+  /* 背景と文字 */
+  --color-bg: #faf9fc;      /* ページ背景（ほぼ白） */
+  --color-surface: #ffffff; /* カード・フォーム背景 */
+  --color-text: #333333;    /* 落ち着いた濃いグレー文字 */
+
+  /* フォント */
+  --font-sans: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont,
+    "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif;
+}
+
+/* 🌿 全体設定 */
+body {
+  background: var(--color-bg);
+  color: var(--color-text);
+  font-family: var(--font-sans);
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* 🗓 カレンダー：今日の日付 */
+/* 📅 今日の日付の見た目を変更 */
+.react-calendar__tile--now {
+  background: transparent !important; /* 背景は透明 */
+  border: 1px solid #919191 !important; /* 濃いグレーの枠線 */
+  border-radius: 8px;
+  font-weight: 600;
+  color: #333333 !important; /* テキストもやや濃いグレー */
+}
+
+/* ホバー・クリック時も色を変えないように固定 */
+.react-calendar__tile--now:enabled:hover,
+.react-calendar__tile--now:enabled:focus {
+  background: transparent !important;
+  border-color: #333333 !important;
+  color: #111111 !important;
+}
+
+/* 📋 テーブルとボタンの統一感 */
+table {
+  border-color: var(--color-accent);
+}
+
+button {
+  transition: all 0.2s ease;
+}
+
+button.primary {
+  background-color: var(--color-primary);
+  color: white;
+}
+
+button.primary:hover {
+  background-color: var(--color-accent);
+}
+
+/* 🌼 入力フォームやカードも柔らかく */
+input, select, textarea {
+  background-color: var(--color-surface);
+  border: 1px solid var(--color-secondary);
+  color: var(--color-text);
+  border-radius: 6px;
+}
+
+input:focus, select:focus, textarea:focus {
+  outline: none;
+  border-color: var(--color-accent);
+  box-shadow: 0 0 0 2px rgba(196, 158, 202, 0.3);
+}
+
+/* 🗓 カレンダーのタイル（1日分）サイズ固定 */
+.react-calendar__tile {
+  flex: 0 0 80px;        /* 幅を固定（カレンダーの幅を超えないようにflexベースで固定） */
+  height: 70px;          /* 高さ固定 */
+  padding: 4px;
+  box-sizing: border-box;
+  text-align: center;
+  vertical-align: top;
+}
+
+/* 🗓 各週の高さを統一 */
+.react-calendar__month-view__weekdays {
+  text-align: center;
+}
+
+/* 🧾 日付テキストと金額表示を整える */
+.react-calendar__tile abbr {
+  display: block;
+  font-size: 14px;
+  margin-bottom: 4px;
+}
+
+.react-calendar__tile span {
+  display: block;
+  font-size: 12px;
+  line-height: 1.2;
+}
+
+/* 📅 今日の日付（背景透明・枠線のみ強調） */
+.react-calendar__tile--now {
+  background: transparent !important;
+  border: 2px solid #555555 !important;
+  border-radius: 8px;
+  font-weight: 600;
+  color: #333333 !important;
+}
+/* 🌸 モーダル背景の修正 */
+.modal-overlay {
+  background-color: rgba(255, 255, 255, 0.8) !important; /* 白の半透明 */
+  backdrop-filter: blur(3px);
+}
+
+/* モーダル枠も柔らかく */
+.modal-content {
+  background: var(--color-surface);
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(200, 162, 200, 0.3);
+}
